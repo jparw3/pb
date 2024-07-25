@@ -5,13 +5,18 @@ type NamedStyles<T> = {
   [P in keyof T]: ViewStyle | TextStyle | ImageStyle;
 };
 
-const palette = {
-  gray: '#808080',
+export const palette = {
+  muted: '#C8C8C8',
+  gray: '#878E96',
   blue: '#007AFF',
   darkGray: '#38434D',
   white: '#FFFFFF',
+  almostBlack: '#141414',
   black: '#000000',
   purple: '#6366F1',
+  primary: '#E24585',
+  lightGray: '#F4F4FD',
+  lightPrimary: '#F7D5E2',
 };
 
 const theme = createTheme({
@@ -32,18 +37,40 @@ const theme = createTheme({
     m_6: 6,
     l_12: 12,
     xl_24: 24,
+    full_9999: 9999,
   },
   textVariants: {
-    body: {
+    'regular/footnote': {
+      fontFamily: 'Pretendard-Regular',
+      fontSize: 13,
+      lineHeight: 18,
+    },
+    'regular/callout': {
+      fontFamily: 'Pretendard-Regular',
       fontSize: 16,
+      lineHeight: 21,
     },
-    title: { fontSize: 20, fontWeight: 'bold' },
-    large: {
-      fontSize: 36,
+    'bold/title1': {
+      fontFamily: 'Pretendard-Bold',
+      fontSize: 26,
+      lineHeight: 36,
+      color: 'almostBlack',
     },
-    extra_large: {
-      fontSize: 64,
-      fontWeight: 'bold',
+    'bold/title2': {
+      fontFamily: 'Pretendard-Bold',
+      fontSize: 22,
+      lineHeight: 28,
+      color: 'almostBlack',
+    },
+    'bold/headline': {
+      fontFamily: 'Pretendard-Bold',
+      fontSize: 17,
+      lineHeight: 22,
+    },
+    'bold/footnote': {
+      fontFamily: 'Pretendard-Medium',
+      fontSize: 13,
+      lineHeight: 18,
     },
     defaults: {
       // We can define a default text variant here.

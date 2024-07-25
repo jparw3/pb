@@ -1,8 +1,6 @@
 import { Link, Stack } from 'expo-router';
 import { Box, Text, makeStyles } from 'theme';
 
-import { Container } from '~/components/Container';
-
 export default function NotFoundScreen() {
   const styles = useStyles();
 
@@ -10,9 +8,9 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
       <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
-        <Text variant="title">This screen doesn't exist.</Text>
+        <Text variant="bold/headline">This screen doesn't exist.</Text>
         <Link href="/" style={styles.link}>
-          <Text variant="body" color="blue">
+          <Text variant="bold/headline" color="blue">
             Go to home screen!
           </Text>
         </Link>

@@ -4,20 +4,19 @@ import { Text, makeStyles } from 'theme';
 
 import { PressableScale } from './PressableScale';
 
-type ButtonProps = {
+type FloatingButtonProps = {
   title?: string;
   onPress?: () => void;
+  children: React.ReactNode;
 } & TouchableOpacityProps;
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(
-  ({ title, onPress, ...touchableProps }, ref) => {
+export const FloatingButton = forwardRef<TouchableOpacity, FloatingButtonProps>(
+  ({ title, onPress, children, ...touchableProps }, ref) => {
     const styles = useStyles();
 
     return (
       <PressableScale style={styles.button} onPress={onPress}>
-        <Text variant="bold/headline" textAlign="center" color="white" fontWeight="600">
-          {title}
-        </Text>
+        {children}
       </PressableScale>
     );
   }
@@ -25,10 +24,14 @@ export const Button = forwardRef<TouchableOpacity, ButtonProps>(
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    width: '100%',
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    width: theme.spacing.xl_64,
+    height: theme.spacing.xl_64,
     alignItems: 'center',
     backgroundColor: theme.colors.primary,
-    borderRadius: theme.borderRadii.l_12,
+    borderRadius: theme.borderRadii.full_9999,
     elevation: 5,
     flexDirection: 'row',
     justifyContent: 'center',
